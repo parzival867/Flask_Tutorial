@@ -153,3 +153,9 @@ Flaskr has two blueprints (each in separate module):
         view 4: Logout
 
             *   remove the user from session
+
+
+        Require Authentication on other viwew
+            
+            *   use decorator
+            *   returns a new funtion that wraps funtion that 
