@@ -191,6 +191,12 @@ Flaskr has two blueprints (each in separate module):
             define a separate index view in the application factory, similar to
             the hello view.
 
+        View 1: Index
+
+            *   The index shows all the posts
+            *
+            *   JOIN  is used so that the author information from the user
+            *   table is available
 ---------------------------------------------------------------------------------------------
 
 Templates:
@@ -224,3 +230,5 @@ Templates:
 *   login.html
 
         identical basically to register.html
+
+
