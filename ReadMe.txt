@@ -72,4 +72,10 @@ open_resource()
 click.command()
     ->  defies a command line command called init-db that calls init_db
     ->  and shows success message
+
+Register the init_db_command and close_db functions
+    ->  app.teardown_appcontext() tells flask to call the function when
+        cleaning up after returning the response
+    ->  app.cli.add_command() adds a new command that can be called with the
+        flask command
 -----------------------------------------------------------------------------------------
