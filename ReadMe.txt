@@ -88,6 +88,44 @@ Blueprint:
     ->  then the bluepring is registered with the application when available in
         factory function
 
+Views:
+    ->  the code to respond to requests
+    ->  returns data that the flask turns into an outgoing respone
 
-Flaskr has two (each in separate module):
+Flaskr has two blueprints (each in separate module):
     1.  for the authentication functions
+        
+        view 1: Register
+                
+                *   @bp.route associates the URL /register with the view
+                *   function
+                *   ->  when flask receives a request to /auth/register, it
+                *       will call the register view
+                *   If the form was submitted , the request would be POST
+                *   
+                *   request.form is a special type of dict mapping submitted
+                *   form keys and values.
+                *
+                *   Validate that username and password are not empty
+                *
+                *   Validate that username is not taken by querying the
+                *   database with db.execute
+                *   fetchone() returns one row from the query. if there are no
+                *   results, it returns None.
+                *   fetchall() used later and returns a list of all results
+                *   
+                *   If validation succeeds, insert the new user data into the
+                *   database.
+                *   never store passwords directly, use generate_hash
+                *   db.commit() needs to be called to save changes
+                *
+                *   After storing the user, redirected to the login page.
+                *   url_for() generates the URL for the login view.
+                *   
+                *   If validation fails, the error is shown to the user.
+                *   flash() stores messages that can be retrieved when
+                *   rendering the template
+                *
+                *   initial navigation to auth/register  or if there was
+                *   validation error, then render_template shows HTML page with
+                *   the registration form
