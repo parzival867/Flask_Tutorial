@@ -129,3 +129,14 @@ Flaskr has two blueprints (each in separate module):
                 *   initial navigation to auth/register  or if there was
                 *   validation error, then render_template shows HTML page with
                 *   the registration form
+
+        view 2: Login
+            
+            *   user is queried firs and stored in a variable for later use
+            *   
+            *   check_password_hash() hashes submitted password in the same way
+            *   as the stored  hash and securely compare them
+            *
+            *   session is a dict that stores data across requests, if
+            *   validation succeeds the user's id is stored in a new session.
+            *   The data is storen in  a cookie sent to the browser.
