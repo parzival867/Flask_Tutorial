@@ -34,3 +34,35 @@ app.config.from_pyfile()
 os.makedirs()
     ->  dnsures that app.instance_path exists
 
+------------------------------------------------------------------------------------------------
+db.py
+
+The first thing to do when working with SQLite db is to create a connection to
+it
+the connection is tied to the request.
+    ->  created at some point when handling the request
+    ->  closed before the request is sent
+
+
+g is a special object that is unique for each request.
+Stores data that might be accessed by multiple functions during the request
+    ->  connection is stored and reused if get_db is called a second time in
+        request
+
+current_app is another special object that points to the Flask application
+handling the request.
+    ->  no application object when writing rest of code because of app factory
+    ->  get_db will be called when the applicaton has been created and 
+        is handling a request, so current_app can be used
+
+sqlite3.connect() 
+    ->  establishes a connection to the file pointed at by the DATABASE config
+        key
+
+sqlite3.Row 
+    ->  tells the connection to return rows that behave like dicts.
+    ->  so can access columns by name
+
+close_db checks if g.db was set
+
+-----------------------------------------------------------------------------------------
