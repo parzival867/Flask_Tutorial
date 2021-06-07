@@ -140,3 +140,12 @@ Flaskr has two blueprints (each in separate module):
             *   session is a dict that stores data across requests, if
             *   validation succeeds the user's id is stored in a new session.
             *   The data is storen in  a cookie sent to the browser.
+        
+        view 3: before app request
+            
+            *   bp.before_app_request register a function that runs before the
+            *   view function.
+            *   load_logged_in_user checks if there is a user id stored in the
+            *   session and gets the user's data form the database and store it
+            *   in g.user
+            *   g.user lasts for the length of the request
