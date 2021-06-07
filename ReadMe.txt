@@ -159,3 +159,54 @@ Flaskr has two blueprints (each in separate module):
             
             *   use decorator
             *   returns a new funtion that wraps funtion that 
+
+
+
+        Enpoints and URLS
+            
+            The url_for() function generates the URL to a view based on a name
+            and arguments. The name associated with a view is also called the
+            endpoint, and by default is the same as the name of the view
+            functon.
+
+            hello() view added to app factory has the name 'hello' and can be
+            linked to with url_for('hello')
+            if it took an argurment, url_for('hello', who='World')
+
+            when using blueprint, the name of the blueprint is added to the
+            front of the name of the function
+            endpoint for the login function: auth.login
+
+---------------------------------------------------------------------------------------------
+
+Templates:
+
+*   base.html
+
+        g is automatically available in templates.
+
+        If g.user is set (from load_logged_in_user) different links are
+        displayed in header
+
+        url_for() is also automatically available, and is  used to generate
+        URLs to the views.
+
+        flash() was used in views to show error messages so looping over the
+        messages returned by get_flashed_messages() will display them
+
+*   register.html
+        
+        {% extends 'base.html' %} tells Jinja to replace the blocks from the
+        base template.
+
+        placing {% block title %} inside {% block header %} sets the title
+        block and then outputs the value into the header block, so that the
+        window and the page share the same title without writing it twice
+
+        even though the required attribute ensures fields are filled in, still
+        need to validate data on server, because some browsers may not support
+        attribute etc.
+
+*   login.html
+
+        identical basically to register.html
