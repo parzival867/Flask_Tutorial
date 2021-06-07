@@ -22,8 +22,8 @@ def register():
             error = 'Username is required.'
         elif not password:
             error = 'Password is required.'
-        elif db.exectute(
-                'SELECT id FROM user WHERE username = ?', (username)
+        elif db.execute(
+                'SELECT id FROM user WHERE username = ?', (username,)
                 ).fetchone() is not None:
 
             # should I escape the variable here
