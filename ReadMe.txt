@@ -149,3 +149,7 @@ Flaskr has two blueprints (each in separate module):
             *   session and gets the user's data form the database and store it
             *   in g.user
             *   g.user lasts for the length of the request
+
+        view 4: Logout
+
+            *   remove the user from session
