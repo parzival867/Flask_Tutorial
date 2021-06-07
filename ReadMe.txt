@@ -65,4 +65,11 @@ sqlite3.Row
 
 close_db checks if g.db was set
 
+open_resource()
+    ->  opens file relative to flaskr
+    ->  get_db return a database connection, used to execute commands 
+
+click.command()
+    ->  defies a command line command called init-db that calls init_db
+    ->  and shows success message
 -----------------------------------------------------------------------------------------
