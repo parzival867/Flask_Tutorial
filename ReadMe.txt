@@ -79,3 +79,15 @@ Register the init_db_command and close_db functions
     ->  app.cli.add_command() adds a new command that can be called with the
         flask command
 -----------------------------------------------------------------------------------------
+
+Blueprints and Views
+
+Blueprint:
+    ->  organize a group of related views and other code.
+    ->  views and code registered with a blueprint.
+    ->  then the bluepring is registered with the application when available in
+        factory function
+
+
+Flaskr has two (each in separate module):
+    1.  for the authentication functions
