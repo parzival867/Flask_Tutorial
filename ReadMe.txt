@@ -176,6 +176,20 @@ Flaskr has two blueprints (each in separate module):
             when using blueprint, the name of the blueprint is added to the
             front of the name of the function
             endpoint for the login function: auth.login
+    2.  For the blog:
+
+        in __init__.py:
+            blog does not have a url_prefix, so the index view will be at /
+            and create view will be ant /create
+
+            the endpoint forthe index view will be blog.index
+            app.add_url_rule() associates the enpoint name'index' with the /
+            url so url_for('index') and url_for('blog.index') will both
+            generate / URL
+
+            *** in another app, may give the blog bluepring a url_prefix and
+            define a separate index view in the application factory, similar to
+            the hello view.
 
 ---------------------------------------------------------------------------------------------
 
