@@ -237,4 +237,16 @@ Templates:
 
         identical basically to register.html
 
+--------------------------------------------------------------------------------
 
+Making project installable:
+
+setup.py    
+
+    *   packages tells Python what package directories to include
+        find_packages() finds them automatically 
+
+MANIFEST.in
+    
+    *   tells python to copy everythin in the static and template directories
+        and the schema.sql file
