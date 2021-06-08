@@ -197,6 +197,12 @@ Flaskr has two blueprints (each in separate module):
             *
             *   JOIN  is used so that the author information from the user
             *   table is available
+
+        View 2: Update
+
+            *   update function takes an argument, id
+            *   url will look like /1/update
+
 ---------------------------------------------------------------------------------------------
 
 Templates:
