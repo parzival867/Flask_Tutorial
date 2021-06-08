@@ -13,7 +13,7 @@ def get_db():
         )
         g.db.row_factory = sqlite3.Row
 
-        return g.db
+    return g.db
 
 def close_db(e=None):
     db = g.pop('db', None)
@@ -30,10 +30,9 @@ def init_db():
 @click.command('init-db')
 @with_appcontext
 def init_db_command():
-    """Clear the existing data and create new tables."""
+    # Clear existing data and create new tables.
     init_db()
-    click.echo('Initialized the database.')
-
+    click.echo('Initialised the database.')
 
 def init_app(app):
     app.teardown_appcontext(close_db)

@@ -3,7 +3,7 @@ import os
 from flask import Flask
 
 def create_app(test_config=None):
-    # Create and configure the app
+    # create and configure an instance of the flask application
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
             SECRET_KEY='dev',
@@ -11,10 +11,10 @@ def create_app(test_config=None):
     )
 
     if test_config is None:
-        # Load the instance config, if it exists, when not testing
+        # Load the instance config, if it exists, when not testin
         app.config.from_pyfile('config.py', silent=True)
     else:
-        #Load the test config if passed in
+        # Load the test config if passed in 
         app.config.from_mapping(test_config)
 
     # ensure the instance folder exists
@@ -35,7 +35,7 @@ def create_app(test_config=None):
     app.register_blueprint(auth.bp)
 
     from . import blog
-    app.register_bluepring(blog.bp)
+    app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
-    
+
     return app
