@@ -27,7 +27,7 @@ update and delete
     '/1/update',
     '/1/delete',
 ))
-def test_login-required(client, path):
+def test_login_required(client, path):
     response = client.post(path)
     assert response.headers['Location'] == 'http://localhost/auth/login'
 
@@ -80,7 +80,7 @@ def test_update(client, auth, app):
     client.post('/1/update', data={'title': 'updated', 'body': ''})
 
 
-    with app.app_contet():
+    with app.app_context():
         db = get_db()
         post = db.execute('SELECT * FROM post WHERE id = 1').fetchone()
         assert post['title'] == 'updated'

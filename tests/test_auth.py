@@ -16,10 +16,12 @@ def test_register(client, app):
     assert 'http://localhost/auth/login' == response.headers['Location']
 
     with app.app_context():
-        assert get_db().execute(
+        assert (
+                get_db().execute(
                 "select * from user where username = 'a'",
-        ).fetchone() is not None
-
+                ).fetchone() 
+                is not None
+        )
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
     ('', '', b'Username is required.'),
@@ -46,10 +48,11 @@ def test_login(client, auth):
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
     ('a', 'test', b'Incorrect username.'),
-    ('test', 'a', b'Incorrect password.'),
-    ))
+    ('test', 'a', b'Incorrect password.')
+    ),
+    )
 def test_login_validate_input(auth, username, password, message):
-    response auth.login(username, password)
+    response = auth.login(username, password)
     assert message in response.data
 
 def test_logout(client, auth):
