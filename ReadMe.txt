@@ -250,3 +250,28 @@ MANIFEST.in
     
     *   tells python to copy everythin in the static and template directories
         and the schema.sql file
+
+------------------------------------------------------------------------
+
+Testing
+
+    *   tempfile.mkstemp() creates and opens a temporar file,returning the file
+    *   descriptor.
+
+    *   the DATABASE path is overridded so it points to this temporary path
+    *   instead of the instance folder. After setting the pat, the database
+    *   tables are created and the test data is inserted. The temporary file is
+    *   closed and removed when the test is over.
+
+    *   TESTING tells flask that the app is in test mode.
+
+    *   the client fixture calls app.test_client() with the application object
+    *   created by the app fixture. Tests will use the client to make requests
+    *   to the application without running the server
+
+    *   the runner fixture is similar to client.
+    *   app.test_cli_runner() creates a runner that can cll the Click commands
+    *   registered with the application
+
+    *   Pytest uses fixtures by matching their function names with the names of
+    *   arguments in the test functions.
