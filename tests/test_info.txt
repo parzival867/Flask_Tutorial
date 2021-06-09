@@ -46,3 +46,10 @@ blog:
 setup.cfg
     ->  some extra configuraton, not required, but makes 
         running tests less verbose
+
+
+
+use pytest to run tests.
+use 'coverage run -m pytest' to run coverage
+'coverage report' gives simple report in terminal
+'coverage html' gives indepth in browser

@@ -275,3 +275,48 @@ Testing
 
     *   Pytest uses fixtures by matching their function names with the names of
     *   arguments in the test functions.
+
+
+-------------------------------------------------------------
+
+Deploying
+
+*   To deploy application elsewhere, build a distribution file. 
+    use wheel format -> .whl
+
+    install wheel library first:
+    pip install wheel
+
+    build wheel distribution file using setup.py
+    'python setup.py bdist_wheel'
+
+    the file is in:
+    dist/flaskr-1.0.0-py3-none-any.whl
+    {project name}-{version}-{python tag}-{abi tag}-{platform tag}
+
+    Copy to another machine set up new virtualenv
+    and install with pip
+    'pip install flaskr-1.0.0-py3-none-any.whl'
+
+    run 
+    '$env: FLASK_APP = 'flaskr' '
+    'flask init-db'
+
+    instances will be in a different directory
+    'venv/var/flaskr-instance'
+
+
+    Change secret key
+
+    flaskr-instance/config.py
+        SECRET_KEY = b';lpioboj;n'
+
+
+Don't use 'flask run' (built in development server)
+instead use production WSGI server eg: Waitress
+    ->  pip install waitress
+
+    tell server to import and call the application factory 
+    to get an application object
+
+    eg. waitress-serve --call 'flaskr:create_app'
